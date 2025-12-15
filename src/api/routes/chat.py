@@ -2,6 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
+from typing import Optional
 
 from src.infrastructure.database import get_db
 from src.services.agent_service import AgentService
@@ -16,8 +17,8 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
-    tool_used: str = None
-    tool_result: str = None
+    tool_used: Optional[str] = None
+    tool_result: Optional[str] = None
 
 
 @router.post("/", response_model=ChatResponse)

@@ -96,10 +96,7 @@ Allows natural language queries about the livestock data.
 {
   "response": "The next vaccine for LOTE-504 is scheduled for 2024-12-20.",
   "tool_used": "get_last_vaccine",
-  "tool_result": "{...}",
-  "tool_params": {
-    "lote": "LOTE-504"
-  }
+  "tool_result": "Vaccine: Fiebre Aftosa, Date: 2024-12-20"
 }
 ```
 
