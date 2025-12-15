@@ -1,0 +1,38 @@
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: ganaderia_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ganaderia_pass
+      - POSTGRES_DB=ganaderia_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: bovara_agent
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3001:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:ganaderia_pass@db:5432/ganaderia_db
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
