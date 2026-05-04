@@ -104,7 +104,7 @@ Allows natural language queries about the livestock data.
 
 You can interact with the agent using natural language to both query data and perform actions.
 
-#### 🔍 Queries (Consultas)
+#### Queries (Consultas)
 
 - **General Info**: "Show me all my cattle" (*Muéstrame todo mi ganado*)
 - **Specific Search**: "Find the cow named Margarita" (*Busca la vaca llamada Margarita*)
@@ -112,7 +112,7 @@ You can interact with the agent using natural language to both query data and pe
 - **Reproduction**: "Which cows are pregnant?" (*¿Qué vacas están preñadas?*)
 - **Reminders**: "Do I have any overdue reminders?" (*¿Tengo recordatorios vencidos?*)
 
-#### ✍️ Actions (Inserciones)
+####  Actions (Inserciones)
 
 The agent can also create new records in the database.
 
